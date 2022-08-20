@@ -16,5 +16,15 @@ public class KeycloakInitializerConfigurationProperties {
         return initializeOnStartup;
     }
 
-    private String realmId;
+    private String masterRealm;
+
+    private String applicationRealm;
+
+    private String clientId;
+
+    private String username;
+
+    private String password;
+
+    private String url;
 }

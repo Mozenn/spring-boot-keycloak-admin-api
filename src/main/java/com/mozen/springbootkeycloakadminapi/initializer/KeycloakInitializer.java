@@ -45,7 +45,7 @@ public class KeycloakInitializer implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        REALM_ID = keycloakInitializerConfigurationProperties.getRealmId();
+        REALM_ID = keycloakInitializerConfigurationProperties.getApplicationRealm();
 
         if (keycloakInitializerConfigurationProperties.initializeOnStartup()) {
             init(false);
@@ -123,11 +123,6 @@ public class KeycloakInitializer implements InitializingBean {
         userRepresentation.setUsername(user.getUsername());
         userRepresentation.setEnabled(true);
         userRepresentation.setEmailVerified(true);
-//        userRepresentation.setRealmRoles(
-//                Arrays.asList(
-//                        keycloakConfigurationProperties.getAdminRoleId(),
-//                        keycloakConfigurationProperties.getMemberRoleId(),
-//                        "ROLE_admin"));
         CredentialRepresentation userCredentialRepresentation = new CredentialRepresentation();
         userCredentialRepresentation.setType(CredentialRepresentation.PASSWORD);
         userCredentialRepresentation.setTemporary(false);
